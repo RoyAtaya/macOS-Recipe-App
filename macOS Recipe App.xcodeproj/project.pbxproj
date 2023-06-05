@@ -11,6 +11,9 @@
 		87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87877DB42A2D33A300D09A2C /* ContentView.swift */; };
 		87877DB72A2D33A400D09A2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87877DB62A2D33A400D09A2C /* Assets.xcassets */; };
 		87877DBA2A2D33A400D09A2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87877DB92A2D33A400D09A2C /* Preview Assets.xcassets */; };
+		87E1350C2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87E1350A2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld */; };
+		87E1350E2A2D36C50088B1CD /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1350D2A2D36C50088B1CD /* Recipe.swift */; };
+		87E135122A2D36F30088B1CD /* RecipeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E135112A2D36F30088B1CD /* RecipeProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		87877DB62A2D33A400D09A2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87877DB92A2D33A400D09A2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87877DBB2A2D33A400D09A2C /* macOS_Recipe_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS_Recipe_App.entitlements; sourceTree = "<group>"; };
+		87E1350B2A2D35320088B1CD /* RecipesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		87E1350D2A2D36C50088B1CD /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		87E135112A2D36F30088B1CD /* RecipeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +58,11 @@
 		87877DB12A2D33A300D09A2C /* macOS Recipe App */ = {
 			isa = PBXGroup;
 			children = (
+				87E135102A2D36DF0088B1CD /* Provider */,
+				87E1350F2A2D36D40088B1CD /* Model */,
 				87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */,
 				87877DB42A2D33A300D09A2C /* ContentView.swift */,
+				87E1350A2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld */,
 				87877DB62A2D33A400D09A2C /* Assets.xcassets */,
 				87877DBB2A2D33A400D09A2C /* macOS_Recipe_App.entitlements */,
 				87877DB82A2D33A400D09A2C /* Preview Content */,
@@ -67,6 +76,22 @@
 				87877DB92A2D33A400D09A2C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		87E1350F2A2D36D40088B1CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87E1350D2A2D36C50088B1CD /* Recipe.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		87E135102A2D36DF0088B1CD /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				87E135112A2D36F30088B1CD /* RecipeProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E1350C2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld in Sources */,
 				87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */,
 				87877DB32A2D33A300D09A2C /* macOS_Recipe_AppApp.swift in Sources */,
+				87E1350E2A2D36C50088B1CD /* Recipe.swift in Sources */,
+				87E135122A2D36F30088B1CD /* RecipeProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +364,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		87E1350A2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				87E1350B2A2D35320088B1CD /* RecipesDataModel.xcdatamodel */,
+			);
+			currentVersion = 87E1350B2A2D35320088B1CD /* RecipesDataModel.xcdatamodel */;
+			path = RecipesDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 87877DA72A2D33A300D09A2C /* Project object */;
 }
