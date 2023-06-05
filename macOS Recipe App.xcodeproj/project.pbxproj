@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8706C3A82A2D806200649EF0 /* CreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */; };
 		87877DB32A2D33A300D09A2C /* macOS_Recipe_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */; };
 		87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87877DB42A2D33A300D09A2C /* ContentView.swift */; };
 		87877DB72A2D33A400D09A2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87877DB62A2D33A400D09A2C /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeView.swift; sourceTree = "<group>"; };
 		87877DAF2A2D33A300D09A2C /* macOS Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macOS Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_Recipe_AppApp.swift; sourceTree = "<group>"; };
 		87877DB42A2D33A300D09A2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				87E1350F2A2D36D40088B1CD /* Model */,
 				87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */,
 				87877DB42A2D33A300D09A2C /* ContentView.swift */,
+				8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */,
 				87E135152A2D739C0088B1CD /* RecipeDetailView.swift */,
 				87E135132A2D6EE30088B1CD /* RecipeRowView.swift */,
 				87E135192A2D75EF0088B1CD /* BulletedListView.swift */,
@@ -179,6 +182,7 @@
 				87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */,
 				87877DB32A2D33A300D09A2C /* macOS_Recipe_AppApp.swift in Sources */,
 				87E135142A2D6EE30088B1CD /* RecipeRowView.swift in Sources */,
+				8706C3A82A2D806200649EF0 /* CreateRecipeView.swift in Sources */,
 				87E1350E2A2D36C50088B1CD /* Recipe.swift in Sources */,
 				87E135122A2D36F30088B1CD /* RecipeProvider.swift in Sources */,
 			);

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingNewContact = false
     var chosen_recipe: String = "Burgers"
     var recently_used_opacity: Bool = true
     
@@ -24,21 +25,36 @@ struct ContentView: View {
             }
             List{
                 ForEach((0...10), id:\.self){ item in
-                    RecipeRowView(recently_used_opacity)
+                    NavigationLink{
+                        RecipeDetailView()
+                    }label: {
+                        RecipeRowView(recently_used_opacity)
+                    }
+                    .listRowSeparator(.visible)
                 }
             }
-        }.navigationTitle("Recipe App")
-            .toolbar{
-                Button("Add new recipe"){
-                    // TODO: Add new recipe logic
-                    print("Add new recipe")
+        }
+        .navigationTitle("Recipe App")
+        .toolbar{
+            ToolbarItem{
+                Button {
+                    isShowingNewContact.toggle()
+                } label: {
+                    Text("Add new recipe")
                 }
-                
+            }
+        }
+        .sheet(isPresented: $isShowingNewContact) {
+            CreateRecipeView()
+        }
+        .toolbar{
+            ToolbarItem(placement: .primaryAction) {
                 Button("Get random recipe"){
                     // TODO: Add get random recipe logic
                     print("Get random recipe")
                 }
             }
+        }
     }
 }
 
@@ -51,6 +67,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationStack{
+            ContentView()
+        }
     }
 }
