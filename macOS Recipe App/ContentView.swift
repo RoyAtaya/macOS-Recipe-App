@@ -27,16 +27,8 @@ struct ContentView: View {
                             .font(.system(size:20, design: .rounded).bold())
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .overlay(alignment: .topTrailing) {
-                        Button{
-                            // TODO: handle favourite logic
-                        } label: {
-                            Image(systemName: "star")
-                                .font(.title3)
-                                .symbolVariant(.fill)
-                                .foregroundColor(.gray.opacity(0.3))
-                        }
-                    }
+                    .overlay(checkOverlay, alignment: .topTrailing)
+                    .overlay(starOverlay, alignment: .topTrailing)
                 }
             }
         }.navigationTitle("Recipe App")
@@ -51,6 +43,25 @@ struct ContentView: View {
                     print("Get random recipe")
                 }
             }
+    }
+    
+    private var checkOverlay: some View {
+        Image(systemName: "checkmark")
+            .font(.title3)
+            .symbolVariant(.fill)
+            .foregroundColor(.gray.opacity(0.3))
+            .offset(x: -100)
+    }
+    
+    private var starOverlay: some View {
+        Button{
+            // TODO: handle favourite logic
+        } label: {
+            Image(systemName: "star")
+                .font(.title3)
+                .symbolVariant(.fill)
+                .foregroundColor(.gray.opacity(0.3))
+        }
     }
 }
 
