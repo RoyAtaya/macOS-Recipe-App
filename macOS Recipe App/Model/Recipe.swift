@@ -14,6 +14,7 @@ final class Recipe: NSManagedObject{
     @NSManaged var steps: String
     @NSManaged var recentlyMade: Bool
     @NSManaged var favourite: Bool
+    @NSManaged var notes: String
     
     // initalize when a new object is created
     override func awakeFromInsert() {

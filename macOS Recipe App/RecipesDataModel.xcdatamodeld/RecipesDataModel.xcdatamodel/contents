@@ -4,6 +4,7 @@
         <attribute name="favourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="ingredients" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="recentlyMade" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="steps" optional="YES" attributeType="String"/>
     </entity>
