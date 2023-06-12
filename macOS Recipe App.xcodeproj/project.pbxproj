@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8706C3A82A2D806200649EF0 /* CreateRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */; };
+		8722F5802A367F3000A467C1 /* EditRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8722F57F2A367F3000A467C1 /* EditRecipeViewModel.swift */; };
 		87877DB32A2D33A300D09A2C /* macOS_Recipe_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */; };
 		87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87877DB42A2D33A300D09A2C /* ContentView.swift */; };
 		87877DB72A2D33A400D09A2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87877DB62A2D33A400D09A2C /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecipeView.swift; sourceTree = "<group>"; };
+		8722F57F2A367F3000A467C1 /* EditRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecipeViewModel.swift; sourceTree = "<group>"; };
 		87877DAF2A2D33A300D09A2C /* macOS Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "macOS Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_Recipe_AppApp.swift; sourceTree = "<group>"; };
 		87877DB42A2D33A300D09A2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8722F57E2A367EE300A467C1 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */,
+				8722F57F2A367F3000A467C1 /* EditRecipeViewModel.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
 		87877DA62A2D33A300D09A2C = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +79,9 @@
 			children = (
 				87E135102A2D36DF0088B1CD /* Provider */,
 				87E1350F2A2D36D40088B1CD /* Model */,
+				8722F57E2A367EE300A467C1 /* Create */,
 				87877DB22A2D33A300D09A2C /* macOS_Recipe_AppApp.swift */,
 				87877DB42A2D33A300D09A2C /* ContentView.swift */,
-				8706C3A72A2D806200649EF0 /* CreateRecipeView.swift */,
 				87E135152A2D739C0088B1CD /* RecipeDetailView.swift */,
 				87E135132A2D6EE30088B1CD /* RecipeRowView.swift */,
 				87E135192A2D75EF0088B1CD /* BulletedListView.swift */,
@@ -178,6 +189,7 @@
 			files = (
 				87E135162A2D739C0088B1CD /* RecipeDetailView.swift in Sources */,
 				87E1351A2A2D75EF0088B1CD /* BulletedListView.swift in Sources */,
+				8722F5802A367F3000A467C1 /* EditRecipeViewModel.swift in Sources */,
 				87E1350C2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld in Sources */,
 				87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */,
 				87877DB32A2D33A300D09A2C /* macOS_Recipe_AppApp.swift in Sources */,

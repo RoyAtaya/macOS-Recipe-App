@@ -2,8 +2,8 @@
 //  RecipeRowView.swift
 //  macOS Recipe App
 //
-//  Created by Roy Ataya on 2022-12-31.
-//
+//  Created by Roy Ataya
+
 
 import SwiftUI
 
@@ -15,15 +15,12 @@ extension Bool{
 
 
 struct RecipeRowView: View {
-    var recently_used_opacity: Double
-    
-    init(_ recently_used_opacity: Bool) {
-        self.recently_used_opacity = recently_used_opacity.toDouble
-    }
+    var recently_used_opacity: Bool
+    let recipe: Recipe
     
     var body: some View {
         VStack(alignment:.leading){
-            Text("Name")
+            Text(recipe.name)
                 .font(.system(size:20, design: .rounded).bold())
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -35,7 +32,7 @@ struct RecipeRowView: View {
         Image(systemName: "checkmark")
             .font(.title3)
             .symbolVariant(.fill)
-            .foregroundColor(.red.opacity(recently_used_opacity))
+            .foregroundColor(.red.opacity(recipe.recentlyMade.toDouble))
             .offset(x: -50)
     }
     
@@ -53,8 +50,8 @@ struct RecipeRowView: View {
     
 }
 
-struct RecipeRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeRowView(true)
-    }
-}
+//struct RecipeRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecipeRowView()
+//    }
+//}

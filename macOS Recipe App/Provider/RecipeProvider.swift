@@ -17,6 +17,11 @@ final class RecipeProvider{
         persistentContainer.viewContext
     }
     
+    var newContext: NSManagedObjectContext{
+        persistentContainer.newBackgroundContext()
+    }
+    
+    
     private init(){
         persistentContainer = NSPersistentContainer(name: "RecipesDataModel")
         persistentContainer.viewContext.automaticallyMergesChangesFromParent = true

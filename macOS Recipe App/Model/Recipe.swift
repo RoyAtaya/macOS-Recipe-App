@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class Recipe: NSManagedObject{
+final class Recipe: NSManagedObject, Identifiable{
     @NSManaged var ingredients: String
     @NSManaged var name: String
     @NSManaged var steps: String
@@ -22,4 +22,18 @@ final class Recipe: NSManagedObject{
         setPrimitiveValue(false, forKey: "favourite")
         setPrimitiveValue(false, forKey: "recentlyMade")
     }
+}
+
+
+extension Recipe{
+    private static var recipesFetchRequest: NSFetchRequest<Recipe>{
+        NSFetchRequest(entityName: "Recipe")
+    }
+    
+    static func getAllRecipes() -> NSFetchRequest<Recipe>{
+        let request: NSFetchRequest<Recipe> = recipesFetchRequest
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Recipe.name, ascending: true)]
+        return request
+    }
+    
 }

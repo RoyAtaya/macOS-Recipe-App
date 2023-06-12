@@ -2,13 +2,15 @@
 //  ContentView.swift
 //  macOS Recipe App
 //
-//  Created by Roy Ataya on 2022-12-31.
-//
+//  Created by Roy Ataya
 
 import SwiftUI
 
 struct ContentView: View {
     @State private var isShowingNewContact = false
+    @FetchRequest(fetchRequest: Recipe.getAllRecipes()) private var recipes
+    var provider = RecipeProvider.shared
+    
     var chosen_recipe: String = "Burgers"
     var recently_used_opacity: Bool = true
     
@@ -24,11 +26,11 @@ struct ContentView: View {
                 Spacer().frame(height: 30)
             }
             List{
-                ForEach((0...10), id:\.self){ item in
+                ForEach(recipes){ recipe in
                     NavigationLink{
                         RecipeDetailView()
                     }label: {
-                        RecipeRowView(recently_used_opacity)
+                        RecipeRowView(recently_used_opacity: recipe.recentlyMade, recipe: recipe)
                     }
                     .listRowSeparator(.visible)
                 }
@@ -45,7 +47,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isShowingNewContact) {
-            CreateRecipeView()
+            CreateRecipeView(viewModel: .init(provider: provider))
         }
         .toolbar{
             ToolbarItem(placement: .primaryAction) {

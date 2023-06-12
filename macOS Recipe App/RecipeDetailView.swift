@@ -2,8 +2,7 @@
 //  RecipeDetailView.swift
 //  macOS Recipe App
 //
-//  Created by Roy Ataya on 2022-12-31.
-//
+//  Created by Roy Ataya
 
 import SwiftUI
 
