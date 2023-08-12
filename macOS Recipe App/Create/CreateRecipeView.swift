@@ -57,7 +57,7 @@ struct CreateRecipeView: View {
                     .font(.system(size: 15, design: .rounded))
             }
         }
-        .navigationTitle("Name Here")
+        .navigationTitle(viewModel.isNew ? "New Recipe": "Update Recipe")
         .toolbar{
             ToolbarItem(placement: .confirmationAction){
                 Button("Done"){

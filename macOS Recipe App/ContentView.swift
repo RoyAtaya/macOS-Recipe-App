@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isShowingNewRecipe = false
+    @State private var recipeToEdit: Recipe?
     @FetchRequest(fetchRequest: Recipe.getAllRecipes()) private var recipes
     var provider = RecipeProvider.shared
     
@@ -31,6 +31,25 @@ struct ContentView: View {
                         RecipeDetailView(recipe: recipe)
                     }label: {
                         RecipeRowView(recipe: recipe)
+                            .contextMenu{
+                                Button {
+                                    recipeToEdit = recipe
+                                } label: {
+                                    Label("Edit", systemImage: "pencil")
+                                }
+                                
+                                Button {
+                                    do{
+                                        try delete(recipe)
+                                    }catch{
+                                        print(error)
+                                    }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+
+
+                            }
                     }
                     .listRowSeparator(.visible)
                 }
@@ -40,15 +59,17 @@ struct ContentView: View {
         .toolbar{
             ToolbarItem{
                 Button {
-                    isShowingNewRecipe.toggle()
+                    recipeToEdit = .empty(context: provider.newContext)
                 } label: {
                     Text("Add new recipe")
                 }
             }
         }
-        .sheet(isPresented: $isShowingNewRecipe) {
-            CreateRecipeView(viewModel: .init(provider: provider))
-        }
+        .sheet(item: $recipeToEdit, onDismiss: {
+            recipeToEdit = nil
+        }, content: { recipe in
+            CreateRecipeView(viewModel: .init(provider: provider, recipe: recipe))
+        })
         .toolbar{
             ToolbarItem(placement: .primaryAction) {
                 Button("Get random recipe"){
@@ -61,6 +82,19 @@ struct ContentView: View {
                     selected?.recentlyMade = true
                     chosen_recipe = selected?.name ?? "---"
                 }
+            }
+        }
+    }
+}
+
+private extension ContentView{
+    func delete(_ recipe: Recipe) throws{
+        let context = provider.viewContext
+        let existsingRecipe = try context.existingObject(with: recipe.objectID)
+        context.delete(existsingRecipe)
+        Task(priority: .background) {
+            try await context.perform{
+                try context.save()
             }
         }
     }
