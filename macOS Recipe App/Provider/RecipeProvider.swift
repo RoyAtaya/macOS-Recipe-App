@@ -2,7 +2,7 @@
 //  RecipeProvider.swift
 //  macOS Recipe App
 //
-//  Created by Roy Ataya on 2023-06-04.
+//  Created by Roy Ataya on
 //
 
 import Foundation

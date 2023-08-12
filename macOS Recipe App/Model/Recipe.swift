@@ -2,7 +2,7 @@
 //  Recipe.swift
 //  macOS Recipe App
 //
-//  Created by Roy Ataya on 2023-06-04.
+//  Created by Roy Ataya
 //
 
 import Foundation
@@ -15,6 +15,12 @@ final class Recipe: NSManagedObject, Identifiable{
     @NSManaged var recentlyMade: Bool
     @NSManaged var favourite: Bool
     @NSManaged var notes: String
+    
+    var isValid: Bool{
+        !name.isEmpty &&
+        !ingredients.isEmpty &&
+        !steps.isEmpty
+    }
     
     // initalize when a new object is created
     override func awakeFromInsert() {
@@ -36,6 +42,14 @@ extension Recipe{
         return request
     }
     
+    static func filter(with config: SearchConfig) -> NSPredicate{
+        switch config.filter{
+        case .all:
+            return config.query.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[cd] %@", config.query)
+        case .favourite:
+            return config.query.isEmpty ? NSPredicate(format: "favourite == %@", NSNumber(value: true)) : NSPredicate(format: "name CONTAINS[cd] %@ AND favourite == %@", config.query, NSNumber(value: true))
+        }
+    }
 }
 
 

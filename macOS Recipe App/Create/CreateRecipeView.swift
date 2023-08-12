@@ -9,7 +9,8 @@ import SwiftUI
 struct CreateRecipeView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: EditRecipeViewModel
-        
+    @State private var hasError: Bool = false
+    
     var body: some View {
         List{
             Section(header: Text("General").font(.system(size: 20, design: .rounded).bold())){
@@ -61,12 +62,7 @@ struct CreateRecipeView: View {
         .toolbar{
             ToolbarItem(placement: .confirmationAction){
                 Button("Done"){
-                    do{
-                        try viewModel.save()
-                        dismiss()
-                    }catch{
-                        print(error)
-                    }
+                    validate()
                 }
             }
             ToolbarItem(placement: .cancellationAction){
@@ -75,7 +71,25 @@ struct CreateRecipeView: View {
                 }
             }
         }
+        .alert("Something is not right", isPresented: $hasError, actions: {}){
+            Text("It looks like your form is invalid!\nMake sure you have added a recipe name, the ingredients and the steps to make the recipe")
+        }
         .frame(minWidth: 700, minHeight: 500)
+    }
+}
+
+private extension CreateRecipeView{
+    func validate(){
+        if viewModel.recipe.isValid{
+            do{
+                try viewModel.save()
+                dismiss()
+            }catch{
+                print(error)
+            }
+        }else{
+            hasError = true
+        }
     }
 }
 

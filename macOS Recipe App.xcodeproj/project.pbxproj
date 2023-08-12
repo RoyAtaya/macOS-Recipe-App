@@ -18,7 +18,6 @@
 		87E135122A2D36F30088B1CD /* RecipeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E135112A2D36F30088B1CD /* RecipeProvider.swift */; };
 		87E135142A2D6EE30088B1CD /* RecipeRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E135132A2D6EE30088B1CD /* RecipeRowView.swift */; };
 		87E135162A2D739C0088B1CD /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E135152A2D739C0088B1CD /* RecipeDetailView.swift */; };
-		87E1351A2A2D75EF0088B1CD /* BulletedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E135192A2D75EF0088B1CD /* BulletedListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		87E135112A2D36F30088B1CD /* RecipeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeProvider.swift; sourceTree = "<group>"; };
 		87E135132A2D6EE30088B1CD /* RecipeRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRowView.swift; sourceTree = "<group>"; };
 		87E135152A2D739C0088B1CD /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
-		87E135192A2D75EF0088B1CD /* BulletedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				87877DB42A2D33A300D09A2C /* ContentView.swift */,
 				87E135152A2D739C0088B1CD /* RecipeDetailView.swift */,
 				87E135132A2D6EE30088B1CD /* RecipeRowView.swift */,
-				87E135192A2D75EF0088B1CD /* BulletedListView.swift */,
 				87E1350A2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld */,
 				87877DB62A2D33A400D09A2C /* Assets.xcassets */,
 				87877DBB2A2D33A400D09A2C /* macOS_Recipe_App.entitlements */,
@@ -188,7 +185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87E135162A2D739C0088B1CD /* RecipeDetailView.swift in Sources */,
-				87E1351A2A2D75EF0088B1CD /* BulletedListView.swift in Sources */,
 				8722F5802A367F3000A467C1 /* EditRecipeViewModel.swift in Sources */,
 				87E1350C2A2D35320088B1CD /* RecipesDataModel.xcdatamodeld in Sources */,
 				87877DB52A2D33A300D09A2C /* ContentView.swift in Sources */,

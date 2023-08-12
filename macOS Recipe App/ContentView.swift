@@ -6,8 +6,18 @@
 
 import SwiftUI
 
+struct SearchConfig: Equatable, Hashable{
+    enum Filter {
+        case all, favourite
+    }
+    var query: String = ""
+    var filter: Filter = .all
+}
+
 struct ContentView: View {
     @State private var recipeToEdit: Recipe?
+    @State private var searchConfig: SearchConfig = .init()
+    
     @FetchRequest(fetchRequest: Recipe.getAllRecipes()) private var recipes
     var provider = RecipeProvider.shared
     
@@ -54,6 +64,10 @@ struct ContentView: View {
                     .listRowSeparator(.visible)
                 }
             }
+            .searchable(text: $searchConfig.query)
+            .onChange(of: searchConfig) { newConfig in
+                recipes.nsPredicate = Recipe.filter(with: newConfig)
+            }
         }
         .navigationTitle("Recipe App")
         .toolbar{
@@ -64,14 +78,7 @@ struct ContentView: View {
                     Text("Add new recipe")
                 }
             }
-        }
-        .sheet(item: $recipeToEdit, onDismiss: {
-            recipeToEdit = nil
-        }, content: { recipe in
-            CreateRecipeView(viewModel: .init(provider: provider, recipe: recipe))
-        })
-        .toolbar{
-            ToolbarItem(placement: .primaryAction) {
+            ToolbarItem {
                 Button("Get random recipe"){
                     var selected = recipes.randomElement()
                     var count = 0
@@ -83,7 +90,18 @@ struct ContentView: View {
                     chosen_recipe = selected?.name ?? "---"
                 }
             }
+            ToolbarItem{
+                Picker("Filter", selection: $searchConfig.filter) {
+                    Text("All").tag(SearchConfig.Filter.all)
+                    Text("Favourites").tag(SearchConfig.Filter.favourite)
+                }
+            }
         }
+        .sheet(item: $recipeToEdit, onDismiss: {
+            recipeToEdit = nil
+        }, content: { recipe in
+            CreateRecipeView(viewModel: .init(provider: provider, recipe: recipe))
+        })
     }
 }
 
