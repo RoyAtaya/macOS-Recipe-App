@@ -7,11 +7,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isShowingNewContact = false
+    @State private var isShowingNewRecipe = false
     @FetchRequest(fetchRequest: Recipe.getAllRecipes()) private var recipes
     var provider = RecipeProvider.shared
     
-    var chosen_recipe: String = "Burgers"
+    @State private var chosen_recipe: String = "----"
     var recently_used_opacity: Bool = true
     
     var body: some View {
@@ -22,15 +22,15 @@ struct ContentView: View {
                     .font(.system(size: 20, design: .rounded).bold())
                 Spacer().frame(height: 15)
                 Text(chosen_recipe)
-                    .font(.system(size: 20, design: .rounded).bold())
+                    .font(.system(size: 20,  design: .rounded).bold())
                 Spacer().frame(height: 30)
             }
             List{
                 ForEach(recipes){ recipe in
                     NavigationLink{
-                        RecipeDetailView()
+                        RecipeDetailView(recipe: recipe)
                     }label: {
-                        RecipeRowView(recently_used_opacity: recipe.recentlyMade, recipe: recipe)
+                        RecipeRowView(recipe: recipe)
                     }
                     .listRowSeparator(.visible)
                 }
@@ -40,20 +40,26 @@ struct ContentView: View {
         .toolbar{
             ToolbarItem{
                 Button {
-                    isShowingNewContact.toggle()
+                    isShowingNewRecipe.toggle()
                 } label: {
                     Text("Add new recipe")
                 }
             }
         }
-        .sheet(isPresented: $isShowingNewContact) {
+        .sheet(isPresented: $isShowingNewRecipe) {
             CreateRecipeView(viewModel: .init(provider: provider))
         }
         .toolbar{
             ToolbarItem(placement: .primaryAction) {
                 Button("Get random recipe"){
-                    // TODO: Add get random recipe logic
-                    print("Get random recipe")
+                    var selected = recipes.randomElement()
+                    var count = 0
+                    while(selected?.recentlyMade == true && count < recipes.count){
+                        selected = recipes.randomElement()
+                        count = count + 1
+                    }
+                    selected?.recentlyMade = true
+                    chosen_recipe = selected?.name ?? "---"
                 }
             }
         }
@@ -61,16 +67,20 @@ struct ContentView: View {
 }
 
 
-
-
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            ContentView()
+            let preview = RecipeProvider.shared
+            ContentView(provider: preview)
+                .environment(\.managedObjectContext, preview.viewContext)
+                .onAppear{Recipe.makePreview(count: 10, in: preview.viewContext)}
         }
+        .previewDisplayName("Recipe with data")
+        NavigationStack{
+            let emptyPreview = RecipeProvider.shared
+            ContentView(provider: emptyPreview)
+                .environment(\.managedObjectContext, emptyPreview.viewContext)
+        }
+        .previewDisplayName("Recipe with no data")
     }
 }

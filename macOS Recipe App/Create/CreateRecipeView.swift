@@ -17,9 +17,10 @@ struct CreateRecipeView: View {
                     TextField(text: $viewModel.recipe.name, prompt: Text("recipe name")) {
                         Text("Recipe Name:")
                     }
-                    Toggle("Favourite", isOn: .constant(true))
-                    .toggleStyle(.switch)
                 }.font(.system(size: 15, design: .rounded))
+                Toggle("Favourite", isOn: $viewModel.recipe.favourite)
+                .toggleStyle(.switch)
+                .font(.system(size: 15, design: .rounded))
             }
             Section(header: Text("Ingredients").font(.system(size: 20, design: .rounded).bold())){
                 TextEditor(text: $viewModel.recipe.ingredients)
@@ -81,7 +82,9 @@ struct CreateRecipeView: View {
 struct CreateRecipeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            CreateRecipeView(viewModel: .init(provider: .shared))
+            let preview = RecipeProvider.shared
+            CreateRecipeView(viewModel: .init(provider: preview))
+                .environment(\.managedObjectContext, preview.viewContext)
         }
     }
 }
