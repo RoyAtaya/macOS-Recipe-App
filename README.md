@@ -18,4 +18,4 @@ Happy cooking!
 
 | Supported Platform | Downloads (stable)      |
 | -------------------| ------------------------|
-|  macOS 13.2+ (x64) | [.dmg](https://github.com/RoyAtaya/macOS-Recipe-App/releases/download/v1.0.0/macOS_Recipe_App.dmg)|
+|  macOS 13.2+ (x64) | [.dmg](https://github.com/RoyAtaya/macOS-Recipe-App/releases/download/v1.0.0/Recipe.Organizer.dmg)|
