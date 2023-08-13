@@ -1,51 +1,61 @@
 {
   "images" : [
     {
+      "filename" : "16x16_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "16x16"
     },
     {
+      "filename" : "32x32_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
     },
     {
+      "filename" : "32x32_-_fork__spoon_-_roy_app_logo 1.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "32x32"
     },
     {
+      "filename" : "64x64_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
     },
     {
+      "filename" : "128x128_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "128x128"
     },
     {
+      "filename" : "256x256_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
     },
     {
+      "filename" : "256x256_-_fork__spoon_-_roy_app_logo 1.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "256x256"
     },
     {
+      "filename" : "512x512_-_fork__spoon_-_roy_app_logo 1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
     },
     {
+      "filename" : "512x512_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "1x",
       "size" : "512x512"
     },
     {
+      "filename" : "1024x1024_-_fork__spoon_-_roy_app_logo.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
