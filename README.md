@@ -1,4 +1,4 @@
-# macOS-Recipe-App
+# macOS Recipe Organizer App
 
 ## Description
 Welcome to the Recipe Organizer App! This macOS app allows users to locally store a digital collection of their recipes, as well as randomly select recipes from their collection when they need some help deciding what to cook.
