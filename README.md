@@ -1,7 +1,7 @@
 # macOS-Recipe-App
 
 ## Description
-Welcome to the Recipe App! This macOS app allows users to locally store a digital collection of their recipes, as well as randomly select recipes from their collection when they need some help deciding what to cook.
+Welcome to the Recipe Organizer App! This macOS app allows users to locally store a digital collection of their recipes, as well as randomly select recipes from their collection when they need some help deciding what to cook.
 
 Full list of app functionality:
 - Manual recipe input
